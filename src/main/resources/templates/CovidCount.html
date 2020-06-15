@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Covid Tracker</title>
+<style>
+h1 {
+   padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+</style>
+<h1>Covid Latest Information</h1>
+</head>
+
+<body>
+ <div class="table-responsive"> 
+<table class="table table-striped  table-condensed">
+<thead class="thead-dark">
+<tr>
+	<th >State</th>
+	<th >Country</th>
+	<th >Total Count</th>
+	<th> New Cases </th>
+</tr>
+</thead>
+<tr th:each="stateWiseData: ${covidStatistics}">
+    <td th:text="${stateWiseData.country}" />
+    <td th:text="${stateWiseData.state}" />
+	<td th:text="${stateWiseData.todayCount}" />   
+	<td th:text="${stateWiseData.deltaCount}" />  
+</tr>
+</table>
+</div>
+</body>
+</html>
